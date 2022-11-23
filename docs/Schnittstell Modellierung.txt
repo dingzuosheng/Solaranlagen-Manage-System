@@ -1,0 +1,131 @@
+Schnittstelle Modellierung:
+	
+	Solaranlage  - > System 
+		1. ID 
+		2. Stromleistung
+		3. Datum(timestamp)
+		/api/solar/data (alle 5 Minuten)  (POST)
+
+	System  -> Solaranlage  
+		1. ID
+		2. Datum(timestamp)
+		3. Zustand(healthy,warning,error)
+		/api/solar/status (wenn sich der Status ändert)   (GET)
+	
+	Solaranlage -> System
+		1. ID
+		2. Zustand
+		3. Baujahr
+		4. Aktulle Stromleistung
+		5. Maximale Leistung(KW/H)
+		6. Standortposition(x,y)
+		7. Hersteller
+		8. Datum(timestampel)	
+		/api/solar/register	(POST)
+
+	Registrierung:
+	     Kunde -> System
+		1. ID
+		2. Nachname
+		3. Vorname
+		4. Password
+		5. Email
+		6. Rolle
+		7. Geburtdatum
+		8. Adresse
+		9. Handynummer
+		10. Bankverbindung
+		11. Anzahl der Bewohnern
+	      /api/user/customer/register      (POST)	 
+	   Administrator -> System
+		1. ID
+		2. Nachname
+		3. Vorname
+		4. Password
+		5. Email
+		6. Rolle
+	     /api/user/admin/register/   (POST)
+	Anmeldung:
+	     Kunde -> System
+		1. Email
+		2. Password
+	     System -> Kunde
+ 		1. Nachname
+		2. Vorname
+		3. Rolle
+	     /api/user/login (POST)
+
+	    Administrator -> System
+		1. Email
+		2. Password
+	     System -> Administrator
+ 		1. Nachname
+		2. Vorname
+		3. Rolle
+	     /api/user/login (POST)
+	
+	Stromverbrauch eintragen
+	        Kunde  -> System
+		1. ID
+		2. Verbrauchte Leistung(KW/H)
+		3. Startdatum
+		4. Enddatum
+		5. Aktuelle Datum
+	   /api/customer/power/consumption (POST)
+
+	Stromverbrauch beobachten:
+	          Kunde -> System
+		1.  ID
+		2. Startdatum
+		3. Enddatum
+		4. Uhrzeit
+	 /api/customer/power/consumption (GET)
+	
+	Stromverbrauch beobachten:
+	         System -> Kunde
+		1.  ID
+		2. Startdatum
+		3. Enddatum
+		4. Uhrzeit
+		5. Preis
+		6. Betrag
+	keine Schnittstelle
+
+	Kunde beobachten:
+	      Administrator -> System
+		1. ID
+		2. Vorname
+		3. Nachname
+		4. Adresse
+		5. Email
+		6. Geburtsdatum
+		7. Stromverbrauch
+		8. Bankverbindung
+		9. Anzahl der Bewohnern
+	/api/customer/{id}      (GET)
+	/api/customer     (GET)
+	/api/customer?id={...}&......
+
+	Solaranlage beobachten:
+	      Administrator -> System
+		1. ID
+		2. Zustand
+		3. Baujahr
+		4. Aktulle Stromleistung
+		5. Maximale Leistung(KW/H)
+		6. Standortposition(x,y)
+		7. Hersteller
+	/api/solar/{id}  (GET)
+	/api/solar   (GET)
+	/api/solar?baujahr={..}&....
+		
+
+
+
+
+
+
+
+
+
+		

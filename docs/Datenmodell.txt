@@ -1,0 +1,27 @@
+Datenmodell:
+	Solaranlagen:
+		1. ID
+		2. Zustand
+		3. Baujahr
+		4. Aktulle Stromleistung
+		5. Maximale Leistung(KW/H)
+		6. Standortposition(x,y)
+		7. Hersteller
+	    Benutzer:
+		1. ID
+		2. Nachname
+		3. Vorname
+		4. Password
+		5. Email
+		6. Rolle
+	   Administrator:
+		Benutzer
+	
+	      Kunde:
+		1. Geburtdatum
+		2. Adresse
+		3. Stromverbrauch
+		4. Handynummer
+		5. Bankverbindung
+		6. Anzahl der Bewohnern
+		
