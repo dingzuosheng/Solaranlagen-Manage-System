@@ -13,7 +13,10 @@ public class CustomerRegisterRequest implements RegisterRequest{
     private String password;
     private String email;
     private Date birthday;
-    private Address address;
+    private String city;
+    private String street;
+    private String houseNumber;
+    private String postcode;
     private String telephoneNumber;
     private String bankAccount;
     private int numberOfResidents;

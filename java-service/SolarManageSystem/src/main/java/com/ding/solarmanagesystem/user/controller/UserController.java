@@ -1,15 +1,17 @@
 package com.ding.solarmanagesystem.user.controller;
 
+import com.ding.solarmanagesystem.model.AdministratorRegisterRequest;
 import com.ding.solarmanagesystem.model.CustomerRegisterRequest;
-import com.ding.solarmanagesystem.model.RegisterRequest;
+import com.ding.solarmanagesystem.model.database.Administrator;
+import com.ding.solarmanagesystem.user.dataTransferObject.RegisterDto;
 import com.ding.solarmanagesystem.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/api/user")
+@RestController
+@RequestMapping("/api/user")
+@ResponseBody
 public class UserController {
 
     private UserService userService;
@@ -19,8 +21,17 @@ public class UserController {
     }
 
     @PostMapping("/customer/register")
-    public void register(@RequestBody CustomerRegisterRequest request){
-        userService.register(request);
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public RegisterDto register(@RequestBody CustomerRegisterRequest request){
+        userService.registerCustomer(request);
+        return new RegisterDto("Your register is successful!");
     }
+    @PostMapping("/administrator/register")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public RegisterDto register(@RequestBody AdministratorRegisterRequest request){
+        userService.registerAdministrator(request);
+        return new RegisterDto("Your register is successful!");
+    }
+
 
 }

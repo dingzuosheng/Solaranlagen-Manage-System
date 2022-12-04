@@ -1,4 +1,4 @@
-package com.ding.solarmanagesystem.user.dto;
+package com.ding.solarmanagesystem.user.dataTransferObject;
 
 import com.ding.solarmanagesystem.model.Role;
 import lombok.AllArgsConstructor;
